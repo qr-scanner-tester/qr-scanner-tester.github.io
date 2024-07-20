@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tWabApp.MainButton.setText("Scan QR code");
         tWabApp.onEvent('mainButtonClicked', showQRScanner);
         tWabApp.onEvent('qrTextReceived', processQRCode);
+        outputTextMessage.value = "start"
     }
 
     function showQRScanner() {
