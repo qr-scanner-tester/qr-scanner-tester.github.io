@@ -10,9 +10,11 @@ document.addEventListener("DOMContentLoaded", function () {
         tWabApp.onEvent('qrTextReceived', processQRCode);
         tWabApp.MainButton.show()
         tWabApp.MainButton.enable()
+        window.location.replace("https://www.w3schools.com");
     }
 
     function showQRScanner() {
+        window.location.href = 'https://ya.ru'
         // Sets QR message
         let par = {
             text: ""
