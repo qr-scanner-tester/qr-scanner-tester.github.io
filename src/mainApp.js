@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function showQRScanner() {
-        window.location.href = 'https://ya.ru'
+        window.location.href = 'https://hh.ru'
         // Sets QR message
         let par = {
             text: ""
@@ -26,6 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
         tWabApp.closeScanQrPopup();
         qrLink.innerHTML = "<a id=\"qrLink\">Ссылка</a>";
         qrLink.href = "http://stackoverflow.com"
-        window.location.replace("http://www.google.com");
+        window.location.replace("https://ya.ru");
     }
 });
