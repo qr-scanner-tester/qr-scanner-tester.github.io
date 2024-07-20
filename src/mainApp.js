@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tWabApp.onEvent('mainButtonClicked', showQRScanner);
         tWabApp.onEvent('qrTextReceived', processQRCode);
         tWabApp.MainButton.show()
+        tWabApp.MainButton.enable()
         outputTextMessage.value = "start"
     }
 
