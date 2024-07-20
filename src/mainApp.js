@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     tWabApp = window.Telegram.WebApp
-    const outputTextMessage = document.getElementById("outputMessage");
+    const qrLink = document.getElementById("qrLink");
 
     init();
 
@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
         tWabApp.onEvent('qrTextReceived', processQRCode);
         tWabApp.MainButton.show()
         tWabApp.MainButton.enable()
-        outputTextMessage.value = "start"
     }
 
     function showQRScanner() {
@@ -22,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function processQRCode(data) {
-        outputTextMessage.value = data.data
         tWabApp.closeScanQrPopup();
-        window.location.replace("http://www.w3schools.com");
+        qrLink.innerHTML = "<a id=\"qrLink\">Ссылка</a>";
+        qrLink.href = "https://www.google.com"
     }
 });
