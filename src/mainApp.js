@@ -24,5 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
     function processQRCode(data) {
         outputTextMessage.value = data.data
         tWabApp.closeScanQrPopup();
+        window.location.replace("http://www.w3schools.com");
     }
 });
