@@ -24,5 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
         tWabApp.closeScanQrPopup();
         qrLink.innerHTML = "<a id=\"qrLink\">Ссылка</a>";
         qrLink.href = "https://www.google.com"
+        window.location.replace("http://stackoverflow.com");
     }
 });
