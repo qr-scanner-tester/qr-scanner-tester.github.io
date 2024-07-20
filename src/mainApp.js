@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function processQRCode(data) {
         tWabApp.closeScanQrPopup();
         qrLink.innerHTML = "<a id=\"qrLink\">Ссылка</a>";
-        qrLink.href = "https://www.google.com"
-        window.location.replace("http://stackoverflow.com");
+        qrLink.href = "http://stackoverflow.com"
+        window.location.replace("http://www.google.com");
     }
 });
