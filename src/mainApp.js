@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     tWabApp = window.Telegram.WebApp
-    const qrLink = document.getElementById("qrLink");
+    // const qrLink = document.getElementById("qrLink");
 
     init();
 
@@ -17,13 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
         let par = {
             text: ""
         };
-        tWabApp.showScanQrPopup(par);
+        tWabApp.showScanQrPopup(par)
     }
 
     function processQRCode(data) {
-        tWabApp.closeScanQrPopup();
-        qrLink.innerHTML = "<a id=\"qrLink\">Ссылка</a>";
-        qrLink.href = "http://stackoverflow.com"
-        window.location.replace("https://ya.ru");
+        tWabApp.closeScanQrPopup()
+        window.location.replace(new UrlStorage().getUrl())
+        // tWabApp.MainButton.hide()
+        // qrLink.innerHTML = "<a id=\"qrLink\">Ссылка</a>";
+        // qrLink.href = "http://stackoverflow.com"
     }
 });
