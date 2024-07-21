@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function processQRCode(data) {
         window.location.replace(urlStorage.getUrl())
-        tWabApp.MainButton.hide()
+        // tWabApp.MainButton.hide()
         tWabApp.closeScanQrPopup()
         // qrLink.innerHTML = "<a id=\"qrLink\">Ссылка</a>";
         // qrLink.href = "http://stackoverflow.com"
