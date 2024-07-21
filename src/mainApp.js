@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     tWabApp = window.Telegram.WebApp
-    // const qrLink = document.getElementById("qrLink");
-
     const urlStorage = new UrlStorage()
+    const loader = document.getElementById("loader");
 
     init();
 
@@ -24,9 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function processQRCode(data) {
         tWabApp.closeScanQrPopup()
+        loader.display = "block"
         window.location.replace(urlStorage.getUrl())
-        // tWabApp.MainButton.hide()
-        // qrLink.innerHTML = "<a id=\"qrLink\">Ссылка</a>";
-        // qrLink.href = "http://stackoverflow.com"
     }
 });
