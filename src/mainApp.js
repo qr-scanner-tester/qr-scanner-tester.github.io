@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    tWabApp = window.Telegram.WebApp
+    let tWabApp = window.Telegram.WebApp
+
     const urlStorage = new UrlStorage()
+    const infoStart = document.getElementById("info-text-start");
+    const infoLoad = document.getElementById("info-text-load");
     const loader = document.getElementById("loader");
 
     init();
@@ -14,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function showQRScanner() {
-        // Sets QR message
         let par = {
             text: ""
         };
@@ -23,7 +25,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function processQRCode(data) {
         tWabApp.closeScanQrPopup()
+
         loader.display = "block"
+        infoLoad.display = "block"
+        infoStart.display = "none"
+
         window.location.replace(urlStorage.getUrl())
     }
 });
