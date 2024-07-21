@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const MAX_VALUE = 1000000000000000000
 
-    const urlStorage = new UrlStorage()
     const infoStart = document.getElementById("info-text-start");
     const infoLoad = document.getElementById("info-text-load");
     const loader = document.getElementById("loader");
+    const qrLink = document.getElementById("qrLink");
 
     init();
 
@@ -34,19 +34,29 @@ document.addEventListener("DOMContentLoaded", function () {
         return Math.floor(Math.random() * max);
     }
 
+    function openLink(url) {
+        tWabApp.openLink(url)
+
+        // window.location.replace(url)
+    }
+
     function processQRCode(data) {
-        tWabApp.closeScanQrPopup()
+        idNumber = getRandomInt(MAX_VALUE)
+        idText = zeroPad(idNumber, MAX_VALUE)
+        const suffix = "?uuid=20306&amount=7.00&trxid=" + idText + "&type=05"
+        let url = "https://www.google.com"
+
+        qrLink.innerHTML = "<a id=\"qrLink\">Оплатить</a>"
+        qrLink.href = `javascript:Telegram.WebApp.openLink('${url}')`
 
         tWabApp.MainButton.hide()
 
-        loader.style.display = "block"
+        tWabApp.closeScanQrPopup()
+
+        tWabApp.openLink(url)
+
         infoLoad.style.display = "block"
+        loader.style.display = "none"
         infoStart.style.display = "none"
-
-        idNumber = getRandomInt(MAX_VALUE)
-        idText = zeroPad(idNumber, MAX_VALUE)
-
-        let url = urlStorage.getHost() + "?uuid=20306&amount=7.00&trxid=" + idText + "&type=05"
-        window.location.replace(url)
     }
 });

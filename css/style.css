@@ -12,6 +12,10 @@ body {
     color: var(--tg-theme-text-color);
 }
 
+a {
+    color: var(--tg-theme-link-color);
+}
+
 #loader {
     display: none;
     margin: auto;
@@ -24,8 +28,12 @@ body {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 #info-text-load {
