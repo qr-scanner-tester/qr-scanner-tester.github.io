@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     let tWabApp = window.Telegram.WebApp
 
+    const MAX_VALUE = 1000000000000000000
+
     const urlStorage = new UrlStorage()
     const infoStart = document.getElementById("info-text-start");
     const infoLoad = document.getElementById("info-text-load");
@@ -23,14 +25,28 @@ document.addEventListener("DOMContentLoaded", function () {
         tWabApp.showScanQrPopup(par)
     }
 
+    function zeroPad(nr, base) {
+        var len = (String(base).length - String(nr).length) + 1;
+        return len > 0 ? new Array(len).join('0') + nr : nr;
+    }
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
     function processQRCode(data) {
         tWabApp.closeScanQrPopup()
 
         tWabApp.MainButton.hide()
 
-        loader.display = "block"
-        infoLoad.display = "block"
-        infoStart.display = "none"
+        loader.style.display = "block"
+        infoLoad.style.display = "block"
+        infoStart.style.display = "none"
+
+        idNumber = getRandomInt(MAX_VALUE)
+        idText = zeroPad(idNumber, MAX_VALUE)
+
+        let url = urlStorage.getHost() + "?uuid=20306&amount=7.00&trxid=" + idText + "&type=05"
 
         window.location.replace(urlStorage.getUrl())
     }
