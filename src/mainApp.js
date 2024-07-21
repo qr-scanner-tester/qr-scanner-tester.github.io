@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
         idText = zeroPad(idNumber, MAX_VALUE)
 
         let url = urlStorage.getHost() + "?uuid=20306&amount=7.00&trxid=" + idText + "&type=05"
-
-        window.location.replace(urlStorage.getUrl())
+        window.location.replace(url)
     }
 });
