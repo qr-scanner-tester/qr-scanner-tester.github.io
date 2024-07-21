@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function processQRCode(data) {
         tWabApp.closeScanQrPopup()
 
+        tWabApp.MainButton.hide()
+
         loader.display = "block"
         infoLoad.display = "block"
         infoStart.display = "none"
